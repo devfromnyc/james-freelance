@@ -21,6 +21,8 @@ const technologies = [
   { name: "GraphQL", icon: "◈" },
 ];
 
+const technologiesReversed = [...technologies].reverse();
+
 export function TechStack() {
   return (
     <section className="py-20 sm:py-32 bg-cyber-darker overflow-hidden">
@@ -89,7 +91,7 @@ export function TechStack() {
               }}
               className="flex gap-8 py-4"
             >
-              {[...technologies.reverse(), ...technologies].map(
+              {[...technologiesReversed, ...technologiesReversed].map(
                 (tech, index) => (
                   <div
                     key={`${tech.name}-rev-${index}`}
