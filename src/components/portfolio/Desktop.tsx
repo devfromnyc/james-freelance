@@ -4,6 +4,8 @@ import { useState, useCallback } from "react";
 import {
   DndContext,
   DragEndEvent,
+  DragStartEvent,
+  DragOverlay,
   MouseSensor,
   TouchSensor,
   useSensor,
@@ -26,6 +28,26 @@ interface OpenWindow {
   project: Project;
   zIndex: number;
   position: { x: number; y: number };
+}
+
+const iconMap: Record<string, string> = {
+  "folder-chart": "📊",
+  "folder-star": "⭐",
+  "folder-code": "💻",
+  folder: "📁",
+};
+
+function DragOverlayFolder({ project }: { project: Project }) {
+  return (
+    <div className="cursor-grabbing select-none">
+      <div className="flex flex-col items-center gap-1 p-3 rounded-lg bg-neon-cyan/20 border border-neon-cyan/50 shadow-lg shadow-neon-cyan/20">
+        <div className="text-5xl">{iconMap[project.icon] || "📁"}</div>
+        <div className="text-xs text-center max-w-[80px] truncate bg-neon-cyan text-cyber-dark px-2 rounded">
+          {project.title}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export function Desktop() {
@@ -55,6 +77,7 @@ export function Desktop() {
   const [selectedFolder, setSelectedFolder] = useState<string | null>(null);
   const [openWindows, setOpenWindows] = useState<OpenWindow[]>([]);
   const [highestZIndex, setHighestZIndex] = useState(100);
+  const [activeId, setActiveId] = useState<string | null>(null);
 
   const mouseSensor = useSensor(MouseSensor, {
     activationConstraint: {
@@ -71,6 +94,10 @@ export function Desktop() {
 
   const sensors = useSensors(mouseSensor, touchSensor);
 
+  const handleDragStart = useCallback((event: DragStartEvent) => {
+    setActiveId(event.active.id as string);
+  }, []);
+
   const handleDragEnd = useCallback((event: DragEndEvent) => {
     const { active, delta } = event;
 
@@ -81,6 +108,7 @@ export function Desktop() {
         y: prev[active.id].y + delta.y,
       },
     }));
+    setActiveId(null);
   }, []);
 
   const openWindow = useCallback(
@@ -156,7 +184,7 @@ export function Desktop() {
       <MenuBar />
 
       {/* Desktop Area */}
-      <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
+      <DndContext sensors={sensors} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
         <div className="absolute inset-0 pt-8 pb-20">
           {projects.map((project) => (
             <Folder
@@ -169,6 +197,11 @@ export function Desktop() {
             />
           ))}
         </div>
+        <DragOverlay dropAnimation={null}>
+          {activeId ? (
+            <DragOverlayFolder project={projects.find((p) => p.id === activeId)!} />
+          ) : null}
+        </DragOverlay>
       </DndContext>
 
       {/* Windows */}

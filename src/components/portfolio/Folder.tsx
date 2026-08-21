@@ -56,7 +56,7 @@ export function Folder({
         onOpen();
       }}
       className={`absolute cursor-pointer select-none ${
-        isDragging ? "z-50" : "z-10"
+        isDragging ? "z-50 opacity-40" : "z-10"
       }`}
     >
       <div
@@ -64,7 +64,7 @@ export function Folder({
           isSelected
             ? "bg-neon-cyan/20 border border-neon-cyan/50"
             : "hover:bg-cyber-gray/30"
-        } ${isDragging ? "opacity-70" : ""}`}
+        }`}
       >
         {/* Folder Icon */}
         <motion.div
