@@ -70,7 +70,8 @@ export function AISpotlight() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-16"
         >
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
+          {/* Circles and connecting lines row */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0">
             {workflowSteps.map((step, index) => (
               <div key={step.step} className="flex items-center">
                 <motion.div
@@ -78,33 +79,44 @@ export function AISpotlight() {
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 + index * 0.1, type: "spring" }}
-                  className="relative"
+                  className="w-24 h-24 rounded-full bg-cyber-gray border-2 border-neon-purple/50 flex flex-col items-center justify-center"
                 >
-                  <div className="w-24 h-24 rounded-full bg-cyber-gray border-2 border-neon-purple/50 flex flex-col items-center justify-center">
-                    <span className="text-2xl">{step.icon}</span>
-                    <span className="text-xs text-foreground/50 mt-1">
-                      Step {step.step}
-                    </span>
-                  </div>
-                  <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 text-center w-32">
-                    <div className="text-sm font-semibold text-foreground">
-                      {step.title}
-                    </div>
-                    <div className="text-xs text-foreground/50 hidden md:block">
-                      {step.description}
-                    </div>
-                  </div>
+                  <span className="text-2xl">{step.icon}</span>
+                  <span className="text-xs text-foreground/50 mt-1">
+                    Step {step.step}
+                  </span>
                 </motion.div>
 
-                {/* Arrow */}
+                {/* Connecting line */}
                 {index < workflowSteps.length - 1 && (
                   <motion.div
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.4 + index * 0.1 }}
-                    className="hidden md:block w-16 h-0.5 bg-gradient-to-r from-neon-purple/50 to-neon-cyan/50 mx-2"
+                    className="hidden md:block w-12 lg:w-20 h-0.5 bg-gradient-to-r from-neon-purple/50 to-neon-cyan/50 mx-1"
                   />
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Labels row */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0 mt-4">
+            {workflowSteps.map((step, index) => (
+              <div key={step.step} className="flex items-center">
+                <div className="w-24 text-center">
+                  <div className="text-sm font-semibold text-foreground">
+                    {step.title}
+                  </div>
+                  <div className="text-xs text-foreground/50 hidden md:block mt-1">
+                    {step.description}
+                  </div>
+                </div>
+
+                {/* Spacer to match line width */}
+                {index < workflowSteps.length - 1 && (
+                  <div className="hidden md:block w-12 lg:w-20 mx-1" />
                 )}
               </div>
             ))}
