@@ -3,9 +3,10 @@ import { AboutMini } from "@/components/home/AboutMini";
 import { ProblemSection } from "@/components/home/ProblemSection";
 import { HowIHelp } from "@/components/home/HowIHelp";
 import { ShopifySection } from "@/components/home/ShopifySection";
-import { AISpotlight } from "@/components/home/AISpotlight";
+import { ProcessSection } from "@/components/home/AISpotlight";
 import { FeaturedWork } from "@/components/home/FeaturedWork";
 import { TechStack } from "@/components/home/TechStack";
+import { FAQSection } from "@/components/home/FAQSection";
 import { FinalCTA } from "@/components/home/FinalCTA";
 
 export default function Home() {
@@ -16,9 +17,10 @@ export default function Home() {
       <ProblemSection />
       <HowIHelp />
       <ShopifySection />
-      <AISpotlight />
+      <ProcessSection />
       <FeaturedWork />
       <TechStack />
+      <FAQSection />
       <FinalCTA />
     </>
   );

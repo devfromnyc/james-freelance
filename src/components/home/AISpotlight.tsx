@@ -2,34 +2,34 @@
 
 import { motion } from "framer-motion";
 
-const workflowSteps = [
+const processSteps = [
   {
     step: 1,
-    title: "Trigger",
-    description: "New form submission, email, or scheduled task",
-    icon: "⚡",
+    title: "Discovery",
+    description: "Understand your goals, challenges, and vision",
+    icon: "🔍",
   },
   {
     step: 2,
-    title: "Process",
-    description: "AI analyzes, categorizes, and enriches data",
-    icon: "🧠",
+    title: "Strategy",
+    description: "Plan timeline, tech stack, and milestones",
+    icon: "📋",
   },
   {
     step: 3,
-    title: "Action",
-    description: "Automated response, update, or notification",
-    icon: "🚀",
+    title: "Build",
+    description: "Develop with regular updates and feedback",
+    icon: "⚡",
   },
   {
     step: 4,
-    title: "Learn",
-    description: "System improves from each interaction",
-    icon: "📈",
+    title: "Launch",
+    description: "Deploy, document, and provide support",
+    icon: "🚀",
   },
 ];
 
-export function AISpotlight() {
+export function ProcessSection() {
   return (
     <section className="py-20 sm:py-32 bg-cyber-darker relative overflow-hidden">
       {/* Background gradient */}
@@ -43,15 +43,14 @@ export function AISpotlight() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block text-neon-purple font-mono text-sm mb-4">
-            The Differentiator
+          <span className="inline-block text-neon-cyan font-mono text-sm mb-4">
+            How It Works
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-            AI Workflows That Work For You
+            A Simple, Transparent Process
           </h2>
           <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
-            Most developers build websites. I build intelligent systems that
-            learn, adapt, and automate your business processes.
+            No guesswork, no chaos. Just a clear path from idea to launch.
           </p>
         </motion.div>
 
@@ -65,14 +64,14 @@ export function AISpotlight() {
         >
           {/* Circles and connecting lines row */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0">
-            {workflowSteps.map((step, index) => (
+            {processSteps.map((step, index) => (
               <div key={step.step} className="flex items-center">
                 <motion.div
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 + index * 0.1, type: "spring" }}
-                  className="w-24 h-24 rounded-full bg-cyber-gray border-2 border-neon-purple/50 flex flex-col items-center justify-center"
+                  className="w-24 h-24 rounded-full bg-cyber-gray border-2 border-neon-cyan/50 flex flex-col items-center justify-center"
                 >
                   <span className="text-2xl">{step.icon}</span>
                   <span className="text-xs text-foreground/50 mt-1">
@@ -81,13 +80,13 @@ export function AISpotlight() {
                 </motion.div>
 
                 {/* Connecting line */}
-                {index < workflowSteps.length - 1 && (
+                {index < processSteps.length - 1 && (
                   <motion.div
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.4 + index * 0.1 }}
-                    className="hidden md:block w-12 lg:w-20 h-0.5 bg-gradient-to-r from-neon-purple/50 to-neon-cyan/50 mx-1"
+                    className="hidden md:block w-12 lg:w-20 h-0.5 bg-gradient-to-r from-neon-cyan/50 to-neon-cyan/30 mx-1"
                   />
                 )}
               </div>
@@ -96,7 +95,7 @@ export function AISpotlight() {
 
           {/* Labels row */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0 mt-4">
-            {workflowSteps.map((step, index) => (
+            {processSteps.map((step, index) => (
               <div key={step.step} className="flex items-center">
                 <div className="w-24 text-center">
                   <div className="text-sm font-semibold text-foreground">
@@ -108,7 +107,7 @@ export function AISpotlight() {
                 </div>
 
                 {/* Spacer to match line width */}
-                {index < workflowSteps.length - 1 && (
+                {index < processSteps.length - 1 && (
                   <div className="hidden md:block w-12 lg:w-20 mx-1" />
                 )}
               </div>
