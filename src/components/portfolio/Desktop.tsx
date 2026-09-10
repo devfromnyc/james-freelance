@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import {
   DndContext,
   DragEndEvent,
@@ -11,7 +11,7 @@ import {
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { projects } from "@/lib/projects";
 import { Project } from "@/types";
 import { MenuBar } from "./MenuBar";
@@ -78,6 +78,13 @@ export function Desktop() {
   const [openWindows, setOpenWindows] = useState<OpenWindow[]>([]);
   const [highestZIndex, setHighestZIndex] = useState(100);
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [showHint, setShowHint] = useState(true);
+
+  // Auto-hide hint after 5 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => setShowHint(false), 5000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const mouseSensor = useSensor(MouseSensor, {
     activationConstraint: {
@@ -182,6 +189,20 @@ export function Desktop() {
 
       {/* Menu Bar */}
       <MenuBar />
+
+      {/* Interactive hint */}
+      <AnimatePresence>
+        {showHint && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="absolute top-12 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-full bg-neon-cyan/90 text-cyber-dark text-sm font-medium shadow-lg"
+          >
+            💡 Drag folders to rearrange • Double-click to open
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Desktop Area */}
       <DndContext sensors={sensors} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
