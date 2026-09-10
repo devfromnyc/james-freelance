@@ -4,7 +4,6 @@ import { ProblemSection } from "@/components/home/ProblemSection";
 import { HowIHelp } from "@/components/home/HowIHelp";
 import { ShopifySection } from "@/components/home/ShopifySection";
 import { ProcessSection } from "@/components/home/AISpotlight";
-import { FeaturedWork } from "@/components/home/FeaturedWork";
 import { TechStack } from "@/components/home/TechStack";
 import { FAQSection } from "@/components/home/FAQSection";
 import { FinalCTA } from "@/components/home/FinalCTA";
@@ -16,9 +15,8 @@ export default function Home() {
       <AboutMini />
       <ProblemSection />
       <HowIHelp />
-      <ShopifySection />
       <ProcessSection />
-      <FeaturedWork />
+      <ShopifySection />
       <TechStack />
       <FAQSection />
       <FinalCTA />
