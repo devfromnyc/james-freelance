@@ -29,13 +29,6 @@ const workflowSteps = [
   },
 ];
 
-const useCases = [
-  "Customer support chatbots that actually understand context",
-  "Automated content generation for your blog or social media",
-  "Smart inventory management that predicts demand",
-  "Lead scoring and qualification on autopilot",
-];
-
 export function AISpotlight() {
   return (
     <section className="py-20 sm:py-32 bg-cyber-darker relative overflow-hidden">
@@ -119,34 +112,6 @@ export function AISpotlight() {
                   <div className="hidden md:block w-12 lg:w-20 mx-1" />
                 )}
               </div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Use Cases */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-24 p-8 rounded-2xl bg-cyber-gray/30 border border-cyber-light"
-        >
-          <h3 className="text-xl font-semibold text-foreground mb-6 text-center">
-            Real-World Applications
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {useCases.map((useCase, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 + index * 0.1 }}
-                className="flex items-start gap-3"
-              >
-                <span className="text-neon-cyan">✓</span>
-                <span className="text-foreground/70">{useCase}</span>
-              </motion.div>
             ))}
           </div>
         </motion.div>
