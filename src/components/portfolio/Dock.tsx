@@ -7,8 +7,6 @@ const dockItems = [
   { icon: "🏠", label: "Home", href: "/" },
   { icon: "📁", label: "Finder", href: "/portfolio", active: true },
   { icon: "💬", label: "Contact", href: "/contact" },
-  { icon: "🌐", label: "Browser", href: "#", external: true },
-  { icon: "⚙️", label: "Terminal", href: "#", external: true },
 ];
 
 export function Dock() {
