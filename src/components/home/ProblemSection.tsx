@@ -4,12 +4,6 @@ import { motion } from "framer-motion";
 
 const painPoints = [
   {
-    icon: "⚡",
-    title: "Slow, Outdated Websites",
-    description:
-      "Your site takes forever to load, frustrating users and killing conversions.",
-  },
-  {
     icon: "🔧",
     title: "Manual Processes",
     description:
@@ -20,6 +14,30 @@ const painPoints = [
     title: "Missed Opportunities",
     description:
       "Your competitors are leveraging AI while you're stuck with legacy systems.",
+  },
+  {
+    icon: "⚡",
+    title: "Slow, Outdated Websites",
+    description:
+      "Your site takes forever to load, frustrating users and killing conversions.",
+  },
+  {
+    icon: "🛒",
+    title: "Missing Store Functionality",
+    description:
+      "The Shopify app you need doesn't exist, costs too much, or doesn't fit your workflow.",
+  },
+  {
+    icon: "♿",
+    title: "Accessibility Gaps",
+    description:
+      "Your site excludes users with disabilities, risking lawsuits and lost customers.",
+  },
+  {
+    icon: "📱",
+    title: "Bad Mobile Experience",
+    description:
+      "Your site breaks on phones, frustrating the majority of your visitors.",
   },
 ];
 

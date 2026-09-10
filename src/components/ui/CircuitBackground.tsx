@@ -44,7 +44,7 @@ export function CircuitBackground() {
     };
 
     const drawCircuit = () => {
-      ctx.fillStyle = "rgba(10, 10, 26, 0.1)";
+      ctx.fillStyle = "rgba(255, 255, 255, 0.1)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Update node positions
@@ -71,8 +71,8 @@ export function CircuitBackground() {
           if (distance < connectionDistance) {
             const opacity = 1 - distance / connectionDistance;
             
-            // Draw circuit-like connection (right angles)
-            ctx.strokeStyle = `rgba(0, 245, 255, ${opacity * 0.3})`;
+            // Draw circuit-like connection (right angles) - Shopify green
+            ctx.strokeStyle = `rgba(94, 142, 62, ${opacity * 0.4})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
@@ -89,7 +89,7 @@ export function CircuitBackground() {
 
       // Draw nodes
       nodes.forEach((node) => {
-        // Outer glow
+        // Outer glow - Shopify green
         const gradient = ctx.createRadialGradient(
           node.x,
           node.y,
@@ -98,9 +98,9 @@ export function CircuitBackground() {
           node.y,
           8
         );
-        gradient.addColorStop(0, "rgba(0, 245, 255, 0.8)");
-        gradient.addColorStop(0.5, "rgba(0, 245, 255, 0.2)");
-        gradient.addColorStop(1, "rgba(0, 245, 255, 0)");
+        gradient.addColorStop(0, "rgba(94, 142, 62, 0.8)");
+        gradient.addColorStop(0.5, "rgba(94, 142, 62, 0.2)");
+        gradient.addColorStop(1, "rgba(94, 142, 62, 0)");
 
         ctx.fillStyle = gradient;
         ctx.beginPath();
@@ -108,7 +108,7 @@ export function CircuitBackground() {
         ctx.fill();
 
         // Inner dot
-        ctx.fillStyle = "rgba(0, 245, 255, 1)";
+        ctx.fillStyle = "rgba(94, 142, 62, 1)";
         ctx.beginPath();
         ctx.arc(node.x, node.y, 2, 0, Math.PI * 2);
         ctx.fill();

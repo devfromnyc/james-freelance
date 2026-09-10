@@ -11,7 +11,7 @@ export function Hero() {
       <CircuitBackground />
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyber-dark/50 to-cyber-dark" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white" />
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

@@ -45,8 +45,8 @@ export function ShopifySection() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `radial-gradient(circle at 20% 50%, rgba(0, 245, 255, 0.15) 0%, transparent 50%),
-                              radial-gradient(circle at 80% 50%, rgba(149, 76, 233, 0.15) 0%, transparent 50%)`,
+            backgroundImage: `radial-gradient(circle at 20% 50%, rgba(94, 142, 62, 0.1) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 50%, rgba(149, 191, 71, 0.1) 0%, transparent 50%)`,
           }}
         />
       </div>

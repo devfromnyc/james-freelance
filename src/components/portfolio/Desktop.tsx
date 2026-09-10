@@ -173,8 +173,8 @@ export function Desktop() {
         className="absolute inset-0 opacity-5"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(0, 245, 255, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 245, 255, 0.1) 1px, transparent 1px)
+            linear-gradient(rgba(94, 142, 62, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(94, 142, 62, 0.1) 1px, transparent 1px)
           `,
           backgroundSize: "50px 50px",
         }}
