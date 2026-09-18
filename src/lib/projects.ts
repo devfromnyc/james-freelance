@@ -102,6 +102,47 @@ export const projects: Project[] = [
     icon: "folder-code",
     featured: false,
   },
+  {
+    id: "breathwork-guru",
+    title: "Breathwork Guru",
+    slug: "breathwork-guru",
+    description: "Wellness business site helping clients overcome alcohol addiction through breathwork.",
+    longDescription:
+      "A modern business website built for a wellness professional specializing in breathwork techniques for alcohol addiction recovery. Features a clean, calming design with information about services, booking capabilities, and resources for clients.",
+    techStack: ["React 19", "Vite", "React Router", "TailwindCSS"],
+    features: [
+      "Responsive modern design",
+      "Service information pages",
+      "Client resources",
+      "Contact integration",
+    ],
+    githubUrl: "https://github.com/devfromnyc/client-site-1",
+    liveUrl: "https://client-site-1-psi.vercel.app/",
+    screenshots: ["/images/projects/breathwork-1.png"],
+    icon: "folder-star",
+    featured: false,
+  },
+  {
+    id: "ecommerce-fullstack",
+    title: "Fullstack E-commerce Store",
+    slug: "ecommerce-fullstack",
+    description: "Complete e-commerce platform with authentication, database, and shopping cart.",
+    longDescription:
+      "A fully functional e-commerce store built from the ground up with Next.js 16 and React 19. Features user authentication, PostgreSQL database with Drizzle ORM, product catalog, shopping cart with Zustand state management, and a clean modern UI.",
+    techStack: ["Next.js 16", "React 19", "TypeScript", "Drizzle ORM", "Neon PostgreSQL", "Zustand", "TailwindCSS"],
+    features: [
+      "User authentication with Better Auth",
+      "PostgreSQL database with Drizzle ORM",
+      "Shopping cart functionality",
+      "Product catalog with filtering",
+      "Responsive modern design",
+    ],
+    githubUrl: "https://github.com/devfromnyc/ecommerce-fullstack-store",
+    liveUrl: "https://ecommerce-fullstack-store.vercel.app/",
+    screenshots: ["/images/projects/ecommerce-fullstack-1.png"],
+    icon: "folder-code",
+    featured: true,
+  },
 ];
 
 export const featuredProjects = projects.filter((p) => p.featured);
