@@ -1,5 +1,6 @@
 "use client";
 
+import { Fragment } from "react";
 import { motion } from "framer-motion";
 
 const processSteps = [
@@ -95,52 +96,40 @@ export function ProcessSection() {
             ))}
           </ol>
 
-          {/* Desktop: original two-row timeline so connectors sit at circle center */}
-          <div className="hidden lg:block">
-            <div className="flex items-center justify-center">
-              {processSteps.map((step, index) => (
-                <div key={step.step} className="flex items-center">
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 + index * 0.1, type: "spring" }}
-                    className="w-24 h-24 rounded-full bg-cyber-gray border-2 border-neon-cyan/50 flex flex-col items-center justify-center"
-                  >
-                    <span className="text-2xl">{step.icon}</span>
-                    <span className="text-xs text-foreground/50 mt-1">
-                      Step {step.step}
-                    </span>
-                  </motion.div>
-                  {index < processSteps.length - 1 && (
-                    <motion.div
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.4 + index * 0.1 }}
-                      className="w-12 lg:w-20 h-0.5 origin-left bg-gradient-to-r from-neon-cyan/50 to-neon-cyan/30 mx-1"
-                    />
-                  )}
-                </div>
-              ))}
-            </div>
-            <div className="flex items-start justify-center mt-4">
-              {processSteps.map((step, index) => (
-                <div key={step.step} className="flex items-start">
-                  <div className="w-24 text-center">
-                    <div className="text-sm font-semibold text-foreground">
-                      {step.title}
-                    </div>
-                    <div className="text-xs text-foreground/50 mt-1">
-                      {step.description}
-                    </div>
+          {/* Desktop: circles and connectors share one grid row so lines stay centered */}
+          <div className="hidden lg:grid justify-center items-center grid-cols-[6rem_5rem_6rem_5rem_6rem_5rem_6rem]">
+            {processSteps.map((step, index) => (
+              <Fragment key={`circle-${step.step}`}>
+                <motion.div
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + index * 0.1, type: "spring" }}
+                  className="w-24 h-24 justify-self-center rounded-full bg-cyber-gray border-2 border-neon-cyan/50 flex flex-col items-center justify-center"
+                >
+                  <span className="text-2xl">{step.icon}</span>
+                  <span className="text-xs text-foreground/50 mt-1">
+                    Step {step.step}
+                  </span>
+                </motion.div>
+                {index < processSteps.length - 1 && (
+                  <div className="h-0.5 w-full bg-gradient-to-r from-neon-cyan/50 to-neon-cyan/30" />
+                )}
+              </Fragment>
+            ))}
+            {processSteps.map((step, index) => (
+              <Fragment key={`label-${step.step}`}>
+                <div className="w-24 justify-self-center text-center self-start pt-4">
+                  <div className="text-sm font-semibold text-foreground">
+                    {step.title}
                   </div>
-                  {index < processSteps.length - 1 && (
-                    <div className="w-12 lg:w-20 mx-1" />
-                  )}
+                  <div className="text-xs text-foreground/50 mt-1">
+                    {step.description}
+                  </div>
                 </div>
-              ))}
-            </div>
+                {index < processSteps.length - 1 && <div />}
+              </Fragment>
+            ))}
           </div>
         </motion.div>
       </div>
