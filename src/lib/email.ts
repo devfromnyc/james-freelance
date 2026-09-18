@@ -45,7 +45,7 @@ export async function sendContactEmail(data: ContactEmailData) {
   
   const response = await resend.emails.send({
     from: "Portfolio Contact <onboarding@resend.dev>",
-    to: process.env.CONTACT_EMAIL || "your@email.com",
+    to: process.env.CONTACT_EMAIL || "devfromnyc@gmail.com",
     replyTo: email,
     subject: `Portfolio Inquiry: ${projectType} from ${name}`,
     html,

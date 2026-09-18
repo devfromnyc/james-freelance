@@ -29,11 +29,6 @@ const faqs = [
     answer:
       "Absolutely. I've collaborated with in-house teams, designers, and other developers on many projects. Clean code, documentation, and clear communication make handoffs smooth.",
   },
-  {
-    question: "What's your payment structure?",
-    answer:
-      "Typically, I work with a 50% deposit to start, with the remaining 50% due upon completion. For larger projects, we can break it into milestone-based payments. I accept bank transfers and all major payment methods.",
-  },
 ];
 
 export function FAQSection() {

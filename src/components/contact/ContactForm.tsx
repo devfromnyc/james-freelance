@@ -150,7 +150,7 @@ export function ContactForm() {
           onChange={handleChange}
           required
           className="w-full px-4 py-3 rounded-lg bg-cyber-gray/50 border border-cyber-light text-foreground placeholder-foreground/30 focus:outline-none focus:border-neon-cyan transition-colors"
-          placeholder="your@email.com"
+          placeholder="devfromnyc@gmail.com"
         />
       </div>
 
