@@ -17,9 +17,9 @@ export function AboutMini() {
           <div className="relative flex-shrink-0">
             <div className="w-48 h-48 sm:w-64 sm:h-64 rounded-full bg-cyber-gray border-2 border-neon-cyan/30 overflow-hidden">
               <img
-                src="/images/james.jpg"
+                src="/images/james-capitol.jpg"
                 alt="James, senior web developer"
-                className="w-full h-full object-cover object-[center_18%]"
+                className="w-full h-full object-cover scale-[1.7] origin-[58%_32%]"
               />
             </div>
             {/* Decorative ring */}
@@ -85,10 +85,6 @@ export function AboutMini() {
               <div>
                 <div className="text-3xl font-bold text-neon-cyan">7+</div>
                 <div className="text-sm text-foreground/50">Years Exp</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-neon-cyan">50+</div>
-                <div className="text-sm text-foreground/50">Projects</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-neon-cyan">100%</div>
