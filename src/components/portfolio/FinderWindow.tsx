@@ -102,9 +102,19 @@ export function FinderWindow({
 
       {/* Content */}
       <div className="p-6 max-h-[70vh] overflow-y-auto">
-        {/* Screenshot placeholder */}
-        <div className="aspect-video bg-cyber-gray rounded-lg mb-6 flex items-center justify-center border border-cyber-light">
-          <span className="text-4xl opacity-30">🖼️</span>
+        {/* Screenshot */}
+        <div className="aspect-video bg-cyber-gray rounded-lg mb-6 overflow-hidden border border-cyber-light">
+          {project.screenshots[0] ? (
+            <img
+              src={project.screenshots[0]}
+              alt={`${project.title} screenshot`}
+              className="w-full h-full object-cover object-top"
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center">
+              <span className="text-4xl opacity-30">🖼️</span>
+            </div>
+          )}
         </div>
 
         {/* Title & Description */}

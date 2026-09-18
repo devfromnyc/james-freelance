@@ -65,9 +65,19 @@ export function MobilePortfolio() {
               exit={{ y: 50, opacity: 0 }}
               className="max-w-lg mx-auto pt-16 pb-8 px-4"
             >
-              {/* Screenshot placeholder */}
-              <div className="aspect-video bg-cyber-gray rounded-lg mb-6 flex items-center justify-center border border-cyber-light">
-                <span className="text-4xl opacity-30">🖼️</span>
+              {/* Screenshot */}
+              <div className="aspect-video bg-cyber-gray rounded-lg mb-6 overflow-hidden border border-cyber-light">
+                {selectedProject.screenshots[0] ? (
+                  <img
+                    src={selectedProject.screenshots[0]}
+                    alt={`${selectedProject.title} screenshot`}
+                    className="w-full h-full object-cover object-top"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <span className="text-4xl opacity-30">🖼️</span>
+                  </div>
+                )}
               </div>
 
               {/* Title & Description */}

@@ -13,13 +13,14 @@ export function AboutMini() {
           transition={{ duration: 0.6 }}
           className="flex flex-col md:flex-row gap-12 items-center"
         >
-          {/* Photo placeholder */}
+          {/* Photo */}
           <div className="relative flex-shrink-0">
             <div className="w-48 h-48 sm:w-64 sm:h-64 rounded-full bg-cyber-gray border-2 border-neon-cyan/30 overflow-hidden">
-              {/* Replace with actual photo */}
-              <div className="w-full h-full flex items-center justify-center text-6xl">
-                👨‍💻
-              </div>
+              <img
+                src="/images/james.jpg"
+                alt="James, senior web developer"
+                className="w-full h-full object-cover object-[center_18%]"
+              />
             </div>
             {/* Decorative ring */}
             <div className="absolute inset-0 rounded-full border border-neon-cyan/20 animate-pulse-glow" />
