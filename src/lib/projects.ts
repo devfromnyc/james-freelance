@@ -65,27 +65,6 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: "ecommerce-dashboard",
-    title: "Ecommerce Dashboard",
-    slug: "ecommerce-dashboard",
-    description: "Comprehensive analytics dashboard for Shopify store management.",
-    longDescription:
-      "A powerful analytics and management dashboard for Shopify stores. Provides real-time sales data, inventory management, customer insights, and AI-powered recommendations for store optimization.",
-    techStack: ["React", "Next.js", "TypeScript", "Shopify API", "TailwindCSS"],
-    features: [
-      "Real-time sales analytics",
-      "Inventory management",
-      "Customer insights",
-      "AI recommendations",
-      "Multi-store support",
-    ],
-    githubUrl: "https://github.com/devfromnyc/react-admin-ui",
-    liveUrl: "https://react-admin-ui.vercel.app",
-    screenshots: ["/images/projects/ecommerce-1.png"],
-    icon: "folder-code",
-    featured: false,
-  },
-  {
     id: "breathwork-guru",
     title: "Breathwork Guru",
     slug: "breathwork-guru",
