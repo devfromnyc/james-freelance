@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { ContactFormData } from "@/types";
+import { siteConfig } from "@/lib/siteConfig";
 
 const projectTypes = [
   "Web Development",
@@ -68,6 +69,32 @@ export function ContactForm() {
           );
         }
         throw new Error(data.error || "Failed to send message");
+      }
+
+      if (data.fallback) {
+        const delivered = await fetch(
+          `https://formsubmit.co/ajax/${encodeURIComponent(siteConfig.email)}`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({
+              name: formData.name,
+              email: formData.email,
+              projectType: formData.projectType,
+              message: formData.message,
+              _subject: `Portfolio Inquiry: ${formData.projectType} from ${formData.name}`,
+              _replyto: formData.email,
+              _template: "table",
+            }),
+          }
+        );
+        const delivery = await delivered.json();
+        if (delivery.success === "false" || delivery.success === false) {
+          throw new Error(delivery.message || "Failed to send message");
+        }
       }
 
       setStatus("success");
@@ -150,7 +177,7 @@ export function ContactForm() {
           onChange={handleChange}
           required
           className="w-full px-4 py-3 rounded-lg bg-cyber-gray/50 border border-cyber-light text-foreground placeholder-foreground/30 focus:outline-none focus:border-neon-cyan transition-colors"
-          placeholder="devfromnyc@gmail.com"
+          placeholder="your@email.com"
         />
       </div>
 

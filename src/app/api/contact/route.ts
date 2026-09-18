@@ -97,7 +97,14 @@ export async function POST(request: NextRequest) {
       message: message.trim().slice(0, 5000),
     };
 
-    // Send email
+    // Send email via Resend when configured; otherwise the client emails the inbox directly
+    if (!process.env.RESEND_API_KEY) {
+      return NextResponse.json(
+        { success: true, fallback: true },
+        { status: 200 }
+      );
+    }
+
     const result = await sendContactEmail(sanitizedData);
 
     if (result.error) {

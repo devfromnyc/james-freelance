@@ -1,4 +1,5 @@
 import { Resend } from "resend";
+import { siteConfig } from "@/lib/siteConfig";
 
 interface ContactEmailData {
   name: string;
@@ -7,16 +8,26 @@ interface ContactEmailData {
   message: string;
 }
 
-function getResendClient() {
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    throw new Error("RESEND_API_KEY environment variable is not set");
-  }
-  return new Resend(apiKey);
+const CONTACT_INBOX = process.env.CONTACT_EMAIL || siteConfig.email;
+
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
 export async function sendContactEmail(data: ContactEmailData) {
-  const { name, email, projectType, message } = data;
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    return { data: null, error: { message: "RESEND_API_KEY is not set" } };
+  }
+
+  const name = escapeHtml(data.name);
+  const email = escapeHtml(data.email);
+  const projectType = escapeHtml(data.projectType);
+  const message = escapeHtml(data.message);
 
   const html = `
     <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
@@ -41,15 +52,13 @@ export async function sendContactEmail(data: ContactEmailData) {
     </div>
   `;
 
-  const resend = getResendClient();
-  
-  const response = await resend.emails.send({
+  const resend = new Resend(apiKey);
+
+  return resend.emails.send({
     from: "Portfolio Contact <onboarding@resend.dev>",
-    to: process.env.CONTACT_EMAIL || "devfromnyc@gmail.com",
-    replyTo: email,
-    subject: `Portfolio Inquiry: ${projectType} from ${name}`,
+    to: CONTACT_INBOX,
+    replyTo: data.email,
+    subject: `Portfolio Inquiry: ${data.projectType} from ${data.name}`,
     html,
   });
-
-  return response;
 }
