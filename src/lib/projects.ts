@@ -111,7 +111,7 @@ export const projects: Project[] = [
     slug: "live-conscious",
     description: "Production Shopify storefront I contribute to in my current role.",
     longDescription:
-      "Production work from my current job. Live Conscious is a wellness brand's Shopify store — I did not found the company or build this site independently. I contribute extensively to the storefront, Shopify customizations, and ongoing production work as part of the in-house team.",
+      "Live Conscious is a Shopify store for a wellness brand that sells collagen peptides, greens, and other daily supplements. The site merchandises bestsellers and a subscribe-and-save program around hair, skin, nails, and joint support, with a 365-day money-back guarantee.",
     techStack: ["Shopify", "Liquid", "JavaScript", "CSS"],
     features: [
       "Ongoing production storefront work",
@@ -131,7 +131,7 @@ export const projects: Project[] = [
     slug: "essential-elements",
     description: "Production Shopify storefront I contribute to in my current role.",
     longDescription:
-      "Production work from my current job. Essential Elements is a science-backed supplements Shopify store — I did not found the company or build this site independently. I contribute extensively to the storefront, Shopify customizations, and ongoing production work as part of the in-house team.",
+      "Essential Elements is a Shopify store for science-backed health and wellness supplements, including T-support, apple cider vinegar gummies, and hydration products. The storefront uses a no-fluff brand voice and a catalog aimed at everyday fitness and wellness goals.",
     techStack: ["Shopify", "Liquid", "JavaScript", "CSS"],
     features: [
       "Ongoing production storefront work",
@@ -151,7 +151,7 @@ export const projects: Project[] = [
     slug: "tru-alchemy",
     description: "Production Shopify storefront I contribute to in my current role.",
     longDescription:
-      "Production work from my current job. Tru Alchemy is a skincare Shopify store — I did not found the company or build this site independently. I contribute extensively to the storefront, Shopify customizations, and ongoing production work as part of the in-house team.",
+      "Tru Alchemy is a Shopify store for clean, holistic skincare sold as a self-care ritual. The catalog highlights formulas with activated vitamin C, patented Hyaluronix moisture technology, a proprietary acid blend, bakuchiol, and other nature-meets-science ingredients.",
     techStack: ["Shopify", "Liquid", "JavaScript", "CSS"],
     features: [
       "Ongoing production storefront work",
@@ -171,7 +171,7 @@ export const projects: Project[] = [
     slug: "1md-nutrition",
     description: "Production Shopify storefront I contribute to in my current role.",
     longDescription:
-      "Production work from my current job. 1MD Nutrition is a physician-formulated supplements Shopify store — I did not found the company or build this site independently. I contribute extensively to the storefront, Shopify customizations, and ongoing production work as part of the in-house team.",
+      "1MD Nutrition is a Shopify store for physician-formulated supplements with clinically studied ingredients. The site sells products across liver, vision, bone, digestive, and other health categories, and pairs the catalog with doctor-led education and health guides.",
     techStack: ["Shopify", "Liquid", "JavaScript", "CSS"],
     features: [
       "Ongoing production storefront work",

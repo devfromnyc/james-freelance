@@ -7,7 +7,7 @@ const faqs = [
   {
     question: "What's your typical project timeline?",
     answer:
-      "Most projects take 4-8 weeks depending on complexity. A simple landing page might be 1-2 weeks, while a full e-commerce build with custom Shopify apps could be 6-10 weeks. I'll give you a realistic timeline during our discovery call.",
+      "It completely depends on the project assigned — scope and complexity vary, so there isn't a one-size-fits-all schedule. Every project is completed in a very timely manner, and I'll share a clear plan once we talk through the work.",
   },
   {
     question: "How do you handle communication during a project?",
