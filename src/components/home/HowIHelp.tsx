@@ -7,7 +7,7 @@ const services = [
     icon: "🌐",
     title: "Web Development",
     description:
-      "I can work on anything involving frontend development and landing page creation. Fast, accessible, and designed to scale.",
+      "I can work on anything involving frontend development and landing page creation. Full-stack applications built with React, Next.js, and TypeScript.",
     skills: ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL"],
     color: "neon-cyan",
   },

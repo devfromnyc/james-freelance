@@ -62,13 +62,44 @@ export function ProcessSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-16"
         >
-          <div className="flex flex-col md:flex-row items-center md:items-start justify-center">
+          {/* Mobile / tablet: each step is circle + copy in one row */}
+          <ol className="lg:hidden max-w-md mx-auto">
             {processSteps.map((step, index) => (
-              <div
-                key={step.step}
-                className="flex flex-col md:flex-row items-center"
-              >
-                <div className="flex flex-col items-center text-center">
+              <li key={step.step} className="flex gap-4">
+                <div className="flex flex-col items-center">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 + index * 0.1, type: "spring" }}
+                    className="w-16 h-16 shrink-0 rounded-full bg-cyber-gray border-2 border-neon-cyan/50 flex flex-col items-center justify-center"
+                  >
+                    <span className="text-xl leading-none">{step.icon}</span>
+                    <span className="text-[10px] text-foreground/50 mt-0.5">
+                      {step.step}
+                    </span>
+                  </motion.div>
+                  {index < processSteps.length - 1 && (
+                    <div className="w-0.5 flex-1 min-h-10 my-1 bg-gradient-to-b from-neon-cyan/50 to-neon-cyan/20" />
+                  )}
+                </div>
+                <div className="pb-8 pt-1">
+                  <div className="text-base font-semibold text-foreground">
+                    {step.title}
+                  </div>
+                  <p className="text-sm text-foreground/50 mt-1 leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          {/* Desktop: original two-row timeline so connectors sit at circle center */}
+          <div className="hidden lg:block">
+            <div className="flex items-center justify-center">
+              {processSteps.map((step, index) => (
+                <div key={step.step} className="flex items-center">
                   <motion.div
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
@@ -81,7 +112,22 @@ export function ProcessSection() {
                       Step {step.step}
                     </span>
                   </motion.div>
-                  <div className="mt-3 w-56 md:w-24">
+                  {index < processSteps.length - 1 && (
+                    <motion.div
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.4 + index * 0.1 }}
+                      className="w-12 lg:w-20 h-0.5 origin-left bg-gradient-to-r from-neon-cyan/50 to-neon-cyan/30 mx-1"
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
+            <div className="flex items-start justify-center mt-4">
+              {processSteps.map((step, index) => (
+                <div key={step.step} className="flex items-start">
+                  <div className="w-24 text-center">
                     <div className="text-sm font-semibold text-foreground">
                       {step.title}
                     </div>
@@ -89,30 +135,12 @@ export function ProcessSection() {
                       {step.description}
                     </div>
                   </div>
+                  {index < processSteps.length - 1 && (
+                    <div className="w-12 lg:w-20 mx-1" />
+                  )}
                 </div>
-
-                {index < processSteps.length - 1 && (
-                  <>
-                    <motion.div
-                      initial={{ scaleY: 0 }}
-                      whileInView={{ scaleY: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.4 + index * 0.1 }}
-                      className="md:hidden w-0.5 h-8 origin-top bg-gradient-to-b from-neon-cyan/50 to-neon-cyan/30 my-2"
-                    />
-                    <div className="hidden md:flex items-center h-24 mx-1">
-                      <motion.div
-                        initial={{ scaleX: 0 }}
-                        whileInView={{ scaleX: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.4 + index * 0.1 }}
-                        className="w-12 lg:w-20 h-0.5 origin-left bg-gradient-to-r from-neon-cyan/50 to-neon-cyan/30"
-                      />
-                    </div>
-                  </>
-                )}
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>
