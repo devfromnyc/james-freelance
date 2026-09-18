@@ -38,6 +38,9 @@ export function MobilePortfolio() {
             <span className="text-sm text-foreground/90 text-center line-clamp-2">
               {project.title}
             </span>
+            {project.origin === "production" && (
+              <span className="text-[10px] text-neon-cyan">Production work</span>
+            )}
           </motion.button>
         ))}
       </div>
@@ -84,6 +87,13 @@ export function MobilePortfolio() {
               <h2 className="text-2xl font-bold text-foreground mb-2">
                 {selectedProject.title}
               </h2>
+              {selectedProject.origin === "production" && (
+                <div className="mb-4 px-3 py-2 rounded-lg bg-neon-cyan/10 border border-neon-cyan/30 text-sm text-foreground/80">
+                  Production work from my current job. I contribute extensively
+                  on the in-house team — I did not build this site
+                  independently, and this is not my company.
+                </div>
+              )}
               <p className="text-foreground/70 mb-6">
                 {selectedProject.longDescription}
               </p>
@@ -125,14 +135,16 @@ export function MobilePortfolio() {
 
               {/* Links */}
               <div className="flex gap-4">
-                <a
-                  href={selectedProject.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 py-3 rounded-lg bg-cyber-gray border border-cyber-light text-foreground/80"
-                >
-                  View Code
-                </a>
+                {selectedProject.githubUrl && (
+                  <a
+                    href={selectedProject.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-2 py-3 rounded-lg bg-cyber-gray border border-cyber-light text-foreground/80"
+                  >
+                    View Code
+                  </a>
+                )}
                 {selectedProject.liveUrl && (
                   <a
                     href={selectedProject.liveUrl}

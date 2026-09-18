@@ -83,12 +83,17 @@ export function Folder({
 
         {/* Label */}
         <div
-          className={`text-xs text-center max-w-[80px] truncate ${
+          className={`text-xs text-center max-w-[90px] truncate ${
             isSelected ? "bg-neon-cyan text-cyber-dark px-2 rounded" : "text-foreground/90"
           }`}
         >
           {project.title}
         </div>
+        {project.origin === "production" && (
+          <div className="text-[10px] text-neon-cyan/80 text-center">
+            Production
+          </div>
+        )}
       </div>
     </motion.div>
   );

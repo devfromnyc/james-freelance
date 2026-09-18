@@ -58,15 +58,28 @@ export function Desktop() {
     const positions: Record<string, FolderPosition> = {};
     const cols = 4;
     const startX = 40;
-    const startY = 60;
-    const gapX = 100;
-    const gapY = 100;
+    const startY = 80;
+    const gapX = 110;
+    const gapY = 110;
 
-    projects.forEach((project, index) => {
+    const personal = projects.filter((p) => p.origin !== "production");
+    const production = projects.filter((p) => p.origin === "production");
+
+    personal.forEach((project, index) => {
       const col = index % cols;
       const row = Math.floor(index / cols);
       positions[project.id] = {
         x: startX + col * gapX,
+        y: startY + row * gapY,
+      };
+    });
+
+    const productionStartX = 520;
+    production.forEach((project, index) => {
+      const col = index % 2;
+      const row = Math.floor(index / 2);
+      positions[project.id] = {
+        x: productionStartX + col * gapX,
         y: startY + row * gapY,
       };
     });
@@ -207,6 +220,9 @@ export function Desktop() {
       {/* Desktop Area */}
       <DndContext sensors={sensors} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
         <div className="absolute inset-0 pt-8 pb-20">
+          <div className="absolute left-[520px] top-10 text-xs font-mono text-neon-cyan/80 tracking-wide">
+            Production work · current role
+          </div>
           {projects.map((project) => (
             <Folder
               key={project.id}

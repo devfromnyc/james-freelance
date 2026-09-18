@@ -6,11 +6,12 @@ export interface Project {
   longDescription: string;
   techStack: string[];
   features: string[];
-  githubUrl: string;
+  githubUrl?: string;
   liveUrl?: string;
   screenshots: string[];
   icon: "folder" | "folder-code" | "folder-chart" | "folder-star";
   featured: boolean;
+  origin?: "personal" | "production";
 }
 
 export interface ContactFormData {
