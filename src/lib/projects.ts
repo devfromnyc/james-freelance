@@ -80,6 +80,7 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/devfromnyc/client-site-1",
     liveUrl: "https://client-site-1-psi.vercel.app/",
+    note: "This site is a work in progress.",
     screenshots: ["/images/projects/breathwork-1.png"],
     icon: "folder-star",
     featured: false,

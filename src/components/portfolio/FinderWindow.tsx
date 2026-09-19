@@ -128,6 +128,9 @@ export function FinderWindow({
             this is not my company.
           </div>
         )}
+        {project.note && (
+          <p className="mb-3 text-sm italic text-foreground/50">{project.note}</p>
+        )}
         <p className="text-foreground/70 mb-6">{project.longDescription}</p>
 
         {/* Tech Stack */}

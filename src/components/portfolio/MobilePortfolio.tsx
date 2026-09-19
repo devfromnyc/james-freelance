@@ -94,6 +94,11 @@ export function MobilePortfolio() {
                   independently, and this is not my company.
                 </div>
               )}
+              {selectedProject.note && (
+                <p className="mb-3 text-sm italic text-foreground/50">
+                  {selectedProject.note}
+                </p>
+              )}
               <p className="text-foreground/70 mb-6">
                 {selectedProject.longDescription}
               </p>

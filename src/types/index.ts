@@ -12,6 +12,7 @@ export interface Project {
   icon: "folder" | "folder-code" | "folder-chart" | "folder-star";
   featured: boolean;
   origin?: "personal" | "production";
+  note?: string;
 }
 
 export interface ContactFormData {
